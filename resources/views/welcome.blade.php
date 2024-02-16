@@ -12,9 +12,15 @@
     @foreach($buku_buku as $buku)
     <div class="card" style="width: 18rem;">
         <div class="card-body">
-          <h5 class="card-title"> {{$buku->bookTitle}} </h5>
-          <h5 class="card-title"> {{$buku->author}} </h5>
-          <a href="/book/{{$buku->id}}" class="btn btn-primary">Go To Detail</a>
+            <h5 class="card-title"> {{$buku->bookTitle}} </h5>
+            <h5 class="card-title"> {{$buku->author}} </h5>
+            <a href="/book/{{$buku->id}}" class="btn btn-primary">Go To Detail</a>
+            <a href="/edit/book/{{$buku->id}}" class="btn btn-primary">Update</a>
+            <form action="/delete/book/{{$buku->id}}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button href="/delete/book/{{$buku->id}}" class="btn btn-danger">Delete</button>
+            </form>
         </div>
     </div>
     @endForEach

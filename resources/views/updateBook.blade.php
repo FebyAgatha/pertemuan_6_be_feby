@@ -10,24 +10,24 @@
 <body>
     <h1>Book Store</h1>
     <h2>Add Book</h2> 
-    <form method="POST" action="/store/book">
+    <form method="POST" action="/update/book/{{$buku->id}}">
         @csrf
-
+        @method('PATCH')
         <div class="mb-3">
           <label for="book-title" class="form-label">Book Title</label>
-          <input type="text" class="form-control" id="book-title" name="judulBuku">
+          <input type="text" class="form-control" id="book-title" name="judulBuku" value="{{$buku->bookTitle}}">
         </div>
         <div class="mb-3">
             <label for="author" class="form-label">Author Name</label>
-            <input type="text" class="form-control" id="author" name="author">
+            <input type="text" class="form-control" id="author" name="author" value="{{$buku->author}}">
         </div>
         <div class="mb-3">
             <label for="book-price" class="form-label">Book Price</label>
-            <input type="number" class="form-control" id="book-price" name="harga">
+            <input type="number" class="form-control" id="book-price" name="harga" value="{{$buku->price}}">
         </div>
         <div class="mb-3">
             <label for="release-date" class="form-label">Release Date</label>
-            <input type="date" class="form-control" id="release-date" name="tanggalRilis">
+            <input type="date" class="form-control" id="release-date" name="tanggalRilis" value="{{$buku->releaseDate}}">
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>

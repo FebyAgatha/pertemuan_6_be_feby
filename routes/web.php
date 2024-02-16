@@ -21,3 +21,9 @@ Route::get('/add/book', [BookController::class, 'AddBook']);
 Route::post('/store/book', [BookController::class, 'StoreBook']);
 
 Route::get('/book/{id}', [BookController::class, 'ViewBook']);
+
+Route::get('/edit/book/{id}', [BookController::class, 'editBook']);
+
+Route::patch('/update/book/{id}', [BookController::class, 'updateBook']);
+
+Route::delete('/delete/book/{id}', [BookController::class, 'deleteBook']);

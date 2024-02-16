@@ -36,5 +36,27 @@ class BookController extends Controller
         return view('bookDetail')->with('buku', $book);
     }
 
+    public function editBook($id){
+        $book = Book::findOrFail($id);
+
+        return view('updateBook')->with('buku', $book);
+    }
+
+    public function updateBook($id, Request $req){
+        $book = Book::findOrFail($id)->update([
+            'bookTitle' => $req->judulBuku,
+            'author' => $req->author,
+            'price' => $req->harga,
+            'releaseDate' => $req->tanggalRilis,
+        ]);
+
+        return redirect('/');
+    }
+
+    public function deleteBook($id){
+        Book::destroy($id);
+
+        return redirect('/');
+    }
     
 }
