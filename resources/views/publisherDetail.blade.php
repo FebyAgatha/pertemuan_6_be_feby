@@ -10,13 +10,12 @@
 <body>
     
     <div class="card" style="width: 18rem;">
+        <h1> {{$penerbit->publisherName}} </h1>
         <div class="card-body">
-          <h5 class="card-title"> {{$buku->bookTitle}} </h5>
-          <h5 class="card-title"> {{$buku->publisher->publisherName}} </h5>
-          <h5 class="card-title"> {{$buku->author}} </h5>
-          <h5 class="card-title"> {{$buku->price}} </h5>
-          <h5 class="card-title"> {{$buku->releaseDate}} </h5>
-          <a href="/" class="btn btn-primary">Go To HomePage</a>
+            @foreach($penerbit->books as $book)
+                <h5 class="card-title"> {{$book->bookTitle}} </h5>
+            @endForEach
+          <a href="/show/publisher" class="btn btn-primary">Go To HomePage</a>
         </div>
     </div>
 

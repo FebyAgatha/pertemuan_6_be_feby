@@ -17,6 +17,17 @@
           <label for="book-title" class="form-label">Book Title</label>
           <input type="text" class="form-control" id="book-title" name="judulBuku">
         </div>
+
+        <div class="mb-3">
+            <label for="publisher-name" class="form-label">Publisher Name</label>
+            <select class="form-select" id="publisher-name" name="namaPenerbit">
+                <option selected>Open this select menu</option>
+                @foreach ($penerbit_penerbit as $penerbit)
+                    <option value="{{$penerbit->id}}">{{$penerbit->publisherName}}</option>
+                @endForEach
+              </select>
+        </div>
+
         <div class="mb-3">
             <label for="author" class="form-label">Author Name</label>
             <input type="text" class="form-control" id="author" name="author">
